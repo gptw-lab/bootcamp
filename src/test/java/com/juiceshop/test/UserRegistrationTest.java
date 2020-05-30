@@ -41,7 +41,7 @@ public class UserRegistrationTest {
             e.printStackTrace();
         }
         wait = new WebDriverWait(driver, 30);
-        driver.get("http://localhost:3001");
+        driver.get("http://juice-shop:3001");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button[@aria-label='Close Welcome Banner']")).click();
     }
