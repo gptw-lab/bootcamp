@@ -22,7 +22,7 @@ services:
   juice-shop:
     image: bkimminich/juice-shop
     ports:
-      - "3000:3232"
+      - "3001:3232"
 
   jenkins:
     image: jenkins/jenkins
