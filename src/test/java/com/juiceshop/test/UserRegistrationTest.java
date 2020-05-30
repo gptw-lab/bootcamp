@@ -41,7 +41,7 @@ public class UserRegistrationTest {
             e.printStackTrace();
         }
         wait = new WebDriverWait(driver, 30);
-        driver.get("http://juice-shop:3001");
+        driver.get("http://juice-shop:3000");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//button[@aria-label='Close Welcome Banner']")).click();
     }
@@ -55,7 +55,6 @@ public class UserRegistrationTest {
 
     @Test
     public void userIsAbleToRegister() {
-        System.out.println("Here");
         String emailId = faker.internet().emailAddress();
         String name = faker.name().firstName();
         driver.findElement(By.id("navbarAccount")).click();
