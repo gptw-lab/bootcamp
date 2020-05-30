@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class UserRegistration {
+public class UserRegistrationTest {
     private WebDriverWait wait;
     private WebDriver driver;
     private Faker faker;
