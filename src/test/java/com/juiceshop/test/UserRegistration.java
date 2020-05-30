@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,8 +54,7 @@ public class UserRegistration {
         driver.findElement(By.name("securityQuestion")).click();
         driver.findElement(By.id("mat-option-4")).click();
         driver.findElement(By.id("securityAnswerControl")).sendKeys(name);
-        Thread.sleep(2000);
-        driver.findElement(By.id("registerButton")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("registerButton"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[contains(text(),'Registration completed successfully. You can now log in.')]")
         ));
