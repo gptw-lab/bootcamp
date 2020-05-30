@@ -54,7 +54,8 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void userIsAbleToRegister() throws InterruptedException {
+    public void userIsAbleToRegister() {
+        System.out.println("Here");
         String emailId = faker.internet().emailAddress();
         String name = faker.name().firstName();
         driver.findElement(By.id("navbarAccount")).click();
