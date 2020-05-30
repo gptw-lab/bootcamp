@@ -9,15 +9,20 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class UserRegistrationTest {
     private WebDriverWait wait;
     private WebDriver driver;
     private Faker faker;
+    private DesiredCapabilities capabilities;
 
     @BeforeAll
     public static void setupClass() {
@@ -27,7 +32,14 @@ public class UserRegistrationTest {
     @BeforeEach
     public void setupTest() {
         faker = new Faker();
-        driver = new ChromeDriver();
+        capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "chrome");
+        try {
+            driver = new RemoteWebDriver(new URL("http://hub.com:4444/wd/hub"),
+                    capabilities);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         wait = new WebDriverWait(driver, 30);
         driver.get("http://localhost:3001");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
