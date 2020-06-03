@@ -10,6 +10,9 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <browser>firefox</browser>
+        <remote>true</remote>
+        <seleniumGridURL>http://hub.com:4444/wd/hub</seleniumGridURL>
     </properties>
 
     <dependencies>

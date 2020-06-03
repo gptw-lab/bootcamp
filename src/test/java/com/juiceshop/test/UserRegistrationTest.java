@@ -1,6 +1,8 @@
 package com.juiceshop.test;
 
 import com.github.javafaker.Faker;
+import com.juiceshop.resources.CapabilitiesBuilder;
+import com.juiceshop.resources.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class UserRegistrationTest {
     private WebDriverWait wait;
-    private WebDriver driver;
+    private RemoteWebDriver driver;
     private Faker faker;
     private DesiredCapabilities capabilities;
 
@@ -30,16 +32,9 @@ public class UserRegistrationTest {
     }
 
     @BeforeEach
-    public void setupTest() {
+    public void setupTest() throws MalformedURLException {
         faker = new Faker();
-        capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        try {
-            driver = new RemoteWebDriver(new URL("http://hub.com:4444/wd/hub"),
-                    capabilities);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        driver = new DriverFactory().getDriver();
         wait = new WebDriverWait(driver, 30);
         driver.get("http://juice-shop:3000");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
