@@ -67,7 +67,7 @@
                         <systemPropertyVariables>
                             <browser>chrome</browser>
                             <remote>true</remote>
-                            <seleniumGridURL>http://localhost:4444/wd/hub</seleniumGridURL>
+                            <seleniumGridURL>http://hub:4444/wd/hub</seleniumGridURL>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>
