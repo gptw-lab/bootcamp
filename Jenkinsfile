@@ -3,9 +3,9 @@ pipeline {
 
    stages {
 
-      stage('Maven installation') {
+      stage('Test') {
          steps {
-             sh 'mvn clean test -Dbrowser=chrome -Dremote=true -DseleniumGridURL=http://hub:4444/wd/hub'
+             sh 'mvn clean test'
         }
       }
    }

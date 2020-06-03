@@ -10,9 +10,6 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <browser>firefox</browser>
-        <remote>true</remote>
-        <seleniumGridURL>http://hub.com:4444/wd/hub</seleniumGridURL>
     </properties>
 
     <dependencies>
@@ -66,6 +63,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M4</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <browser>chrome</browser>
+                            <remote>true</remote>
+                            <seleniumGridURL>http://localhost:4444/wd/hub</seleniumGridURL>
+                        </systemPropertyVariables>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
